@@ -122,7 +122,7 @@ shopping-list-api/
 - Add authentication and authorization (e.g., JWT).
 - Add integration with WhatsApp bots.
 - Enhance the API paths by adding more layers.
-- Renaming the portuguese files and methods to conventional english.
+- Rename the portuguese files and methods to conventional english.
 
 ## Video Demos
 
