@@ -124,7 +124,7 @@ shopping-list-api/
 - Enhance the API paths by adding more layers.
 - Rename the portuguese files and methods to conventional english.
 
-## Video Demos
+## Demo Videos
 
 https://github.com/user-attachments/assets/3ecae15b-ecf5-4c40-b665-f9a4d94b14c3
 
