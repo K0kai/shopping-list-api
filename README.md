@@ -126,10 +126,9 @@ shopping-list-api/
 
 ## Video Demos
 
-https://github.com/user-attachments/assets/27befd14-c4ae-4f52-bfd7-d0e3b3287b4a
-
-
 https://github.com/user-attachments/assets/3ecae15b-ecf5-4c40-b665-f9a4d94b14c3
+
+https://github.com/user-attachments/assets/27befd14-c4ae-4f52-bfd7-d0e3b3287b4a
 
 ## Contact
 
