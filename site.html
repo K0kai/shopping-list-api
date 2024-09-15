@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <style>
+        h1{text-align:center;}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            display:flex;
+            justify-content: center;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping List</h1>
+
+    <form id="shoppingForm">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority" required>
+            <option value="high">High</option>
+            <option value="normal">Normal</option>
+            <option value="low">Low</option>
+        </select>
+
+        <button type="submit">Add Product</button>
+    </form>
+
+    <div class="message" id="message"></div>
+
+    <script>
+        const form = document.getElementById('shoppingForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const productName = document.getElementById('productName').value;
+            const quantity = document.getElementById('quantity').value;
+            const priority = document.getElementById('priority').value;
+
+            const productData = {
+                name: productName,
+                quantity: quantity,
+                priority: priority
+            };
+
+            fetch('http://localhost:8080/itens', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('message').textContent = "Product added successfully!";
+                    form.reset();
+                } else {
+                    document.getElementById('message').textContent = "Failed to add product!";
+                }
+            })
+            .catch(error => {
+                document.getElementById('message').textContent = "Connection error!";
+                console.error("Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>
